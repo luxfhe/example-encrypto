@@ -6,7 +6,7 @@ import {ERC20_Harness, WETH_Harness} from "./ERC20_Harness.sol";
 import {ConfidentialETH} from "../src/ConfidentialETH.sol";
 import {TestSetup} from "./TestSetup.sol";
 import {IWETH} from "../src/interfaces/IWETH.sol";
-import {inEuint128, euint128} from "@fhenixprotocol/cofhe-foundry-mocks/FHE.sol";
+import {inEuint128, euint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
 
 contract ConfidentialETHTest is TestSetup {
     WETH_Harness public wETH;

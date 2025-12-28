@@ -17,6 +17,6 @@
 		"====== DEPLOY ======": "",
 		"sepolia:deploy:deployConfidentialERC20": "pnpm script:sepolia:broadcast --verify --sig 'deployConfidentialERC20(string name,string symbol,uint8 decimals)'"
 	},
-	"author": "Fhenix",
+	"author": "luxfhe",
 	"license": "MIT"
 }

@@ -6,7 +6,7 @@ pragma solidity ^0.8.25;
 import {IERC20, IERC20Metadata, ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IFHERC20, FHERC20} from "./FHERC20.sol";
-import {euint128, FHE} from "@fhenixprotocol/cofhe-foundry-mocks/FHE.sol";
+import {euint128, FHE} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
 import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
 

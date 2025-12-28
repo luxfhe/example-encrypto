@@ -13,7 +13,7 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {IFHERC20} from "./interfaces/IFHERC20.sol";
 import {IFHERC20Errors} from "./interfaces/IFHERC20Errors.sol";
-import {FHE, euint128, inEuint128, Utils} from "@fhenixprotocol/cofhe-foundry-mocks/FHE.sol";
+import {FHE, euint128, inEuint128, Utils} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.

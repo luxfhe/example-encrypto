@@ -10,7 +10,7 @@ import {ContextUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/Cont
 import {EIP712Upgradeable} from "@openzeppelin/contracts-upgradeable/utils/cryptography/EIP712Upgradeable.sol";
 import {NoncesUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/NoncesUpgradeable.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import {FHE, euint128, inEuint128, Utils} from "@fhenixprotocol/cofhe-foundry-mocks/FHE.sol";
+import {FHE, euint128, inEuint128, Utils} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -80,7 +80,7 @@ abstract contract FHERC20Upgradeable is
 
     // bytes32 private constant FHERC20StorageLocation =
     //     keccak256(
-    //         abi.encode(uint256(keccak256("fhenix.storage.FHERC20")) - 1)
+    //         abi.encode(uint256(keccak256("luxfhe.storage.FHERC20")) - 1)
     //     ) & ~bytes32(uint256(0xff));
     bytes32 private constant FHERC20StorageLocation =
         0xbc8c60a4c847b9f9ad87177ea86cc5fcc3776c8621f569416d2140307d537200;
