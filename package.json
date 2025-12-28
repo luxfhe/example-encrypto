@@ -1,0 +1,22 @@
+{
+	"name": "redacted-contracts",
+	"version": "0.0.1",
+	"scripts": {
+		"====== ENV ======": "",
+		"env:sepolia": "dotenv -e .env.sepolia --",
+		"====== ANVIL ======": "",
+		"anvil:fork": "anvil --fork-url $RPC_URL",
+		"anvil:fork:sepolia": "pnpm env:sepolia pnpm anvil:fork",
+		"====== MISC ======": "",
+		"forge:test": "forge test -vvv",
+		"forge:coverage": "forge coverage --report lcov && genhtml lcov.info --branch-coverage --output-dir coverage",
+		"====== SCRIPT ======": "",
+		"script:run": "forge script script/Redacted.s.sol:Redacted --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv",
+		"script:sepolia": "pnpm env:sepolia pnpm script:run",
+		"script:sepolia:broadcast": "pnpm script:sepolia --broadcast",
+		"====== DEPLOY ======": "",
+		"sepolia:deploy:deployConfidentialERC20": "pnpm script:sepolia:broadcast --verify --sig 'deployConfidentialERC20(string name,string symbol,uint8 decimals)'"
+	},
+	"author": "Fhenix",
+	"license": "MIT"
+}
