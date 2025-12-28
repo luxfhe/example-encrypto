@@ -65,7 +65,7 @@ contract FUSD is FHERC20Upgradeable, AccessControlUpgradeable {
 
     // bytes32 private constant FUSDStorageLocation =
     //     keccak256(
-    //         abi.encode(uint256(keccak256("fhenix.storage.FUSD")) - 1)
+    //         abi.encode(uint256(keccak256("luxfhe.storage.FUSD")) - 1)
     //     ) & ~bytes32(uint256(0xff));
     bytes32 private constant FUSDStorageLocation =
         0xe50f9a2817db0d2f949d224eb43b71bea5efba5616570a0f831be3f359f46000;

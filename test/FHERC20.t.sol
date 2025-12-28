@@ -6,7 +6,7 @@ import {FHERC20} from "./FHERC20_Harness.sol";
 import {TestSetup} from "./TestSetup.sol";
 import {IFHERC20} from "../src/interfaces/IFHERC20.sol";
 import {IFHERC20Errors} from "../src/interfaces/IFHERC20Errors.sol";
-import {inEuint128, euint128} from "@fhenixprotocol/cofhe-foundry-mocks/FHE.sol";
+import {inEuint128, euint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
 
 contract FHERC20Test is TestSetup {
     function setUp() public override {
