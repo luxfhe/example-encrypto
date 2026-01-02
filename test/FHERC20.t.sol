@@ -6,7 +6,7 @@ import {FHERC20} from "./FHERC20_Harness.sol";
 import {TestSetup} from "./TestSetup.sol";
 import {IFHERC20} from "../src/interfaces/IFHERC20.sol";
 import {IFHERC20Errors} from "../src/interfaces/IFHERC20Errors.sol";
-import {inEuint128, euint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {Euint128, euint128} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 
 contract FHERC20Test is TestSetup {
     function setUp() public override {
@@ -193,7 +193,7 @@ contract FHERC20Test is TestSetup {
     function test_EncTransfer() public {
         XXX.mint(bob, 10e18);
         XXX.mint(alice, 10e18);
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // Reversion - Transfer to 0 address
 
@@ -230,11 +230,11 @@ contract FHERC20Test is TestSetup {
         XXX.mint(bob, 10e18);
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
-        inEuint128 memory inValue;
+        Euint128 memory inValue;
 
         // Success - Bob -> Alice (called by Alice, nonce = 0)
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -265,7 +265,7 @@ contract FHERC20Test is TestSetup {
 
         // Success - Bob -> Alice (called by Alice, nonce = 1)
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -300,7 +300,7 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // Valid
 
@@ -337,7 +337,7 @@ contract FHERC20Test is TestSetup {
 
         // Reversion - Transfer from 0 address
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -358,7 +358,7 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // Valid
 
@@ -399,11 +399,11 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // FHERC20EncTransferFromOwnerMismatch bob -> eve
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -426,11 +426,11 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // FHERC20EncTransferFromOwnerMismatch eve -> bob
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -453,11 +453,11 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // FHERC20EncTransferFromSpenderMismatch
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -481,12 +481,12 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // FHERC20EncTransferFromValueHashMismatch
 
-        inValue = CFT.createInEuint128(2e18, 0);
-        inEuint128 memory inValueMismatch = CFT.createInEuint128(2.1e18, 0);
+        inValue = CFT.createEuint128(2e18, 0);
+        Euint128 memory inValueMismatch = CFT.createEuint128(2.1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             bobPK,
@@ -512,11 +512,11 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // Signer != owner - ERC2612InvalidSigner
 
-        inValue = CFT.createInEuint128(1e18, 0);
+        inValue = CFT.createEuint128(1e18, 0);
         permit = generateTransferFromPermit(
             XXX,
             alicePK,
@@ -542,7 +542,7 @@ contract FHERC20Test is TestSetup {
         XXX.mint(alice, 10e18);
         IFHERC20.FHERC20_EIP712_Permit memory permit;
 
-        inEuint128 memory inValue = CFT.createInEuint128(1e18, 0);
+        Euint128 memory inValue = CFT.createEuint128(1e18, 0);
 
         // Invalid nonce - ERC2612InvalidSigner
 

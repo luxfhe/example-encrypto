@@ -7,9 +7,9 @@
 [submodule "lib/openzeppelin-foundry-upgrades"]
 	path = lib/openzeppelin-foundry-upgrades
 	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
-[submodule "lib/cofhe-contracts"]
-	path = lib/cofhe-contracts
-	url = https://github.com/fhenixprotocol/cofhe-contracts
-[submodule "lib/cofhe-foundry-mocks"]
-	path = lib/cofhe-foundry-mocks
-	url = https://github.com/fhenixprotocol/cofhe-foundry-mocks
+[submodule "lib/luxfhe-contracts"]
+	path = lib/luxfhe-contracts
+	url = https://github.com/luxfhe/luxfhe-contracts
+[submodule "lib/luxfhe-foundry-mocks"]
+	path = lib/luxfhe-foundry-mocks
+	url = https://github.com/luxfhe/luxfhe-foundry-mocks

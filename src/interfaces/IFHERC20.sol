@@ -5,7 +5,7 @@ pragma solidity ^0.8.25;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
-import {euint128, inEuint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {euint128, Euint128} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -26,7 +26,7 @@ import {euint128, inEuint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
  * applications.
  *
  * Note: This FHERC20 does not include FHE operations, and is intended to decouple the
- * frontend work from the active CoFHE (FHE Coprocessor) work during development and auditing.
+ * frontend work from the active LuxFHE (FHE Coprocessor) work during development and auditing.
  */
 interface IFHERC20 is IERC20, IERC20Metadata {
     /**
@@ -138,11 +138,11 @@ interface IFHERC20 is IERC20, IERC20Metadata {
      *
      * - `to` cannot be the zero address.
      * - the caller must have a balance of at least `value`.
-     * - `inValue` must be a `inEuint128` to preserve confidentiality.
+     * - `inValue` must be a `Euint128` to preserve confidentiality.
      */
     function encTransfer(
         address to,
-        inEuint128 memory inValue
+        Euint128 memory inValue
     ) external returns (euint128 transferred);
 
     /**
@@ -184,7 +184,7 @@ interface IFHERC20 is IERC20, IERC20Metadata {
     function encTransferFrom(
         address from,
         address to,
-        inEuint128 memory inValue,
+        Euint128 memory inValue,
         FHERC20_EIP712_Permit calldata permit
     ) external returns (euint128 transferred);
 

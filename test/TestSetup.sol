@@ -9,8 +9,8 @@ import {ConfidentialERC20} from "../src/ConfidentialERC20.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import {FHERC20SigUtils} from "./FHERC20SigUtils.sol";
-import {CoFheTest} from "@luxfhe/cofhe-foundry-mocks/CoFheTest.sol";
-import {euint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {CoFheTest} from "@luxfhe/luxfhe-foundry-mocks/CoFheTest.sol";
+import {euint128} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 
 abstract contract TestSetup is Test, IERC20Errors {
     CoFheTest public CFT;

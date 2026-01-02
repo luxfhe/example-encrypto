@@ -1,5 +1,7 @@
 forge-std/=lib/forge-std/src/
 @openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
-@fhenixprotocol/cofhe-contracts/=lib/cofhe-contracts/contracts/
-@fhenixprotocol/cofhe-foundry-mocks/=lib/cofhe-foundry-mocks/src/
+@luxfhe/luxfhe-contracts/=lib/luxfhe-foundry-mocks/node_modules/@luxfi/contracts/fhe/
+@luxfhe/luxfhe-foundry-mocks/=lib/luxfhe-foundry-mocks/src/
+@luxfhe/fhe-contracts/=lib/luxfhe-foundry-mocks/node_modules/@luxfi/contracts/fhe/
+@luxfi/contracts/=lib/luxfhe-foundry-mocks/node_modules/@luxfi/contracts/
