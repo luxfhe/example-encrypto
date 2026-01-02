@@ -13,7 +13,7 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {IFHERC20} from "./interfaces/IFHERC20.sol";
 import {IFHERC20Errors} from "./interfaces/IFHERC20Errors.sol";
-import {FHE, euint128, inEuint128, Utils} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {FHE, euint128, Euint128, Utils} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -34,7 +34,7 @@ import {FHE, euint128, inEuint128, Utils} from "@luxfhe/cofhe-foundry-mocks/FHE.
  * applications.
  *
  * Note: This FHERC20 does not include FHE operations, and is intended to decouple the
- * frontend work from the active CoFHE (FHE Coprocessor) work during development and auditing.
+ * frontend work from the active LuxFHE (FHE Coprocessor) work during development and auditing.
  */
 abstract contract FHERC20 is IFHERC20, IFHERC20Errors, Context, EIP712, Nonces {
     // NOTE: `indicatedBalances` are intended to indicate movement and change
@@ -213,11 +213,11 @@ abstract contract FHERC20 is IFHERC20, IFHERC20Errors, Context, EIP712, Nonces {
      *
      * - `to` cannot be the zero address.
      * - the caller must have a balance of at least `value`.
-     * - `inValue` must be a `inEuint128` to preserve confidentiality.
+     * - `inValue` must be a `Euint128` to preserve confidentiality.
      */
     function encTransfer(
         address to,
-        inEuint128 memory inValue
+        Euint128 memory inValue
     ) public virtual returns (euint128 transferred) {
         euint128 value = FHE.asEuint128(inValue);
         address owner = _msgSender();
@@ -269,7 +269,7 @@ abstract contract FHERC20 is IFHERC20, IFHERC20Errors, Context, EIP712, Nonces {
     function encTransferFrom(
         address from,
         address to,
-        inEuint128 memory inValue,
+        Euint128 memory inValue,
         FHERC20_EIP712_Permit calldata permit
     ) public virtual returns (euint128 transferred) {
         if (block.timestamp > permit.deadline)
@@ -402,7 +402,7 @@ abstract contract FHERC20 is IFHERC20, IFHERC20Errors, Context, EIP712, Nonces {
             );
         }
 
-        // Update CoFHE Access Control List (ACL) to allow decrypting / sealing of the new balances
+        // Update LuxFHE Access Control List (ACL) to allow decrypting / sealing of the new balances
         if (euint128.unwrap(_encBalances[from]) != 0) {
             FHE.allowThis(_encBalances[from]);
             FHE.allow(_encBalances[from], from);

@@ -194,7 +194,7 @@ contract FUSD is FHERC20Upgradeable, AccessControlUpgradeable {
         if (claim.claimed) revert AlreadyClaimed();
 
         // Get the decrypted amount (reverts if the amount is not decrypted yet)
-        uint128 amount = SafeCast.toUint128(FHE.getDecryptResult(ctHash));
+        uint128 amount = SafeCast.toUint128(FHE.reveal(ctHash));
 
         // Update the claim
         claim.decryptedAmount = amount;
@@ -212,7 +212,7 @@ contract FUSD is FHERC20Upgradeable, AccessControlUpgradeable {
         FUSDStorage storage $ = _getFUSDStorage();
         Claim memory _claim = $.claims[ctHash];
 
-        (uint256 amount, bool decrypted) = FHE.getDecryptResultSafe(ctHash);
+        (uint256 amount, bool decrypted) = FHE.revealSafe(ctHash);
 
         _claim.decryptedAmount = SafeCast.toUint128(amount);
         _claim.decrypted = decrypted;

@@ -4,7 +4,7 @@ pragma solidity ^0.8.25;
 import {FUSD, IFUSDVault} from "../src/FUSD.sol";
 import {TestSetup} from "./TestSetup.sol";
 import {FHERC20} from "../src/FHERC20.sol";
-import {inEuint128, euint128, FHE} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {Euint128, euint128, FHE} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import "forge-std/console.sol";
 

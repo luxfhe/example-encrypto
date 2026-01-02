@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {ERC20_Harness} from "./ERC20_Harness.sol";
 import {ConfidentialERC20} from "../src/ConfidentialERC20.sol";
 import {TestSetup} from "./TestSetup.sol";
-import {inEuint128, euint128} from "@luxfhe/cofhe-foundry-mocks/FHE.sol";
+import {Euint128, euint128} from "@luxfhe/luxfhe-foundry-mocks/FHE.sol";
 
 contract ConfidentialERC20Test is TestSetup {
     ERC20_Harness public wBTC;
