@@ -12,7 +12,7 @@ This standard aims to bring Fully Homomorphic Encryption to the ERC20 standard. 
 
 ### 1. Encrypted Balances.
 
-Using the Fhenix CoFHE coprocessor, FHE operations are brought into the blockchain environment. Thus, the balance of an ERC20 token can remain in an encrypted state, only accessible under certain circumstances as follows:
+Using the Lux FHE coprocessor, FHE operations are brought into the blockchain environment. Thus, the balance of an ERC20 token can remain in an encrypted state, only accessible under certain circumstances as follows:
 
 #### A. Manually decrypted.
 
